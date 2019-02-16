@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import AboutMe from './AboutMe'
+import AboutFriend from './AboutFriend'
 import './App.css';
 
 class App extends Component {
@@ -12,13 +13,7 @@ class App extends Component {
           <h2>About</h2>
           <div className="about-cards">
             <AboutMe />
-            <div className="about-card">
-              <h3>Pauli</h3>
-              <ul>
-                <li>Age: 30</li>
-                <li>Hobbies: computer games, board games, dancing</li>
-              </ul>
-            </div>
+            <AboutFriend />
           </div>
         </div>
       </div>
