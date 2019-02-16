@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import AboutMe from './AboutMe'
 import './App.css';
 
 class App extends Component {
@@ -9,13 +11,7 @@ class App extends Component {
         <div className="about">
           <h2>About</h2>
           <div className="about-cards">
-            <div className="about-card">
-              <h3>Johannes</h3>
-              <ul>
-                <li>Age: 30</li>
-                <li>Hobbies: ultimate frisbee, computer games</li>
-              </ul>
-            </div>
+            <AboutMe />
             <div className="about-card">
               <h3>Pauli</h3>
               <ul>
