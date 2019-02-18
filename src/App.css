@@ -19,3 +19,24 @@
   border-radius: 5px;
   box-shadow: 3px 3px 10px rgba(165, 165, 165, 0.4);
 }
+
+/* This will be added in the Functions section */
+
+.likes-wrapper {
+  display: flex;
+  border-top: 1px solid #c5c5c5;
+  padding-top: 0.5em;
+}
+
+.likes-wrapper * {
+  margin: 0 0.2em;
+}
+
+.btn {
+  background-color: #efefef;
+  border-radius: 3px;
+  border: 1px solid #b1b1b1;
+  width: 2em;
+}
+
+/* End of stuff that will be added in Functions section */
