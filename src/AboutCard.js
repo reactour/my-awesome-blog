@@ -1,18 +1,6 @@
 import React, { Component }  from 'react';
 
 class AboutCard extends Component {
-  constructor() {
-    super()
-    this.state = {
-      likes: 0
-    }
-  }
-
-  modifyLikes(amount) {
-    let newLikes = this.state.likes + amount
-    this.setState({likes: newLikes})
-  }
-
   render () {
     return (
       <div className="about-card">
@@ -23,12 +11,12 @@ class AboutCard extends Component {
         </ul>
         <div className="likes-wrapper">
           <div className="likes">
-            {this.state.likes}
+            {this.props.likes}
           </div>
-          <button className="btn" onClick={() => this.modifyLikes(1)}>
+          <button className="btn" onClick={() => this.props.modifyLikes(this.props.name, 1)}>
             +
           </button>
-          <button className="btn" onClick={() => this.modifyLikes(-1)}>
+          <button className="btn" onClick={() => this.props.modifyLikes(this.props.name, -1)}>
             -
           </button>
         </div>
