@@ -1,53 +1,51 @@
 import React, { Component } from 'react';
 
 import AboutCard from './AboutCard'
+import { getWriters, updateWriter } from './apiClient'
 import './App.css';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      writers: [
-        {
-          name: "Johannes",
-          age: 30,
-          hobbies: "ultimate frisbee, computer games",
-          likes: 0
-        },
-        {
-          name: "Pauli",
-          age: 30,
-          hobbies: "board games, dancing",
-          likes: 0
-        }
-      ]
+      writers: []
     }
   }
 
-  modifyLikes(name, likes) {
+  componentWillMount() {
+    getWriters(this)
+  }
+
+
+  modifyLikes(id, likeModifier) {
     let newWriters = this.state.writers
+    let writerToUpdate = false
     for (let i = 0; i < newWriters.length; i++) {
-      if (newWriters[i].name === name) {
-        newWriters[i].likes = newWriters[i].likes + likes
+      if (newWriters[i].id === id) {
+        newWriters[i].likes = newWriters[i].likes + likeModifier
+        writerToUpdate = newWriters[i]
       }
     }
     this.setState({writers: newWriters})
+    updateWriter(writerToUpdate)
   }
 
   renderAboutCard(writer) {
     return(
       <AboutCard
+        id={writer.id}
         key={writer.name}
         name={writer.name}
         age={writer.age}
         hobbies={writer.hobbies}
         likes={writer.likes}
-        modifyLikes={(name, likes) => this.modifyLikes(name, likes)}
+        modifyLikes={(id, likeModifier) => this.modifyLikes(id, likeModifier)}
       />
     )
   }
 
   render() {
+    let writers = this.state.writers
     return (
       <div className="App">
         <h1 className="masthead">My awesome blog</h1>

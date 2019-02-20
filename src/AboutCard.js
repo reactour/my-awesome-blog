@@ -13,10 +13,10 @@ class AboutCard extends Component {
           <div className="likes">
             {this.props.likes}
           </div>
-          <button className="btn" onClick={() => this.props.modifyLikes(this.props.name, 1)}>
+          <button className="btn" onClick={() => this.props.modifyLikes(this.props.id, 1)}>
             +
           </button>
-          <button className="btn" onClick={() => this.props.modifyLikes(this.props.name, -1)}>
+          <button className="btn" onClick={() => this.props.modifyLikes(this.props.id, -1)}>
             -
           </button>
         </div>
