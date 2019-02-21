@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 
 import AboutCard from './AboutCard'
-import { getWriters, updateWriter } from './apiClient'
+import Post from './Post'
+import { getWriters, getPosts, updateWriter } from './apiClient'
 import './App.css';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      writers: []
+      writers: [],
+      posts: [],
     }
   }
 
   componentWillMount() {
     getWriters(this)
+    getPosts(this)
   }
 
 
@@ -50,6 +53,10 @@ class App extends Component {
       <div className="App">
         <h1 className="masthead">My awesome blog</h1>
         <div className="about">
+          <h2>Posts</h2>
+            <div className="posts">
+              {this.state.posts.map((post) => (<Post post={post} key={`post-${post.id}`} />))}
+            </div>
           <h2>About</h2>
           <div className="about-cards">
             {this.state.writers.map(this.renderAboutCard, this)}

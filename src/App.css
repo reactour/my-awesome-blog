@@ -40,3 +40,12 @@
 }
 
 /* End of stuff that will be added in Functions section */
+
+/* This will be given in the final challenge */
+.posts {
+  margin: 0 10vw;
+}
+
+.single-post {
+  border-bottom: 1px solid #eaeaea;
+}

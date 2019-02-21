@@ -18,3 +18,8 @@ export const updateWriter = (writer) => {
   client.put(`/writers/${writer.id}`, writer)
     .then((resp) => console.log(resp))
 }
+
+export const getPosts = (that) => {
+  client.get('/posts')
+    .then((resp) => that.setState({posts: resp.data}))
+}
